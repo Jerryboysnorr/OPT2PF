@@ -5,5 +5,8 @@ public class Roos extends Bloem{
         super(Aantal, Type);
     }
 
-
+    @Override
+    public String getType() {
+        return "Rozen";
+    }
 }
