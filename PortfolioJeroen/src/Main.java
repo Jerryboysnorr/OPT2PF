@@ -2,12 +2,15 @@ package PortfolioJeroen.src;
 
 import java.util.Scanner;
 
+//Jeroen Ravensbergen 22073442
+
 public class Main {
     static boolean ingelogd = false;
 
     static boolean kweker = false;
     static String naam;
     static String naamKlant = "geen klant";
+    static String adresKlant = "geen adres beschikbaar";
 
 
     public static void main(String[] args) {
@@ -28,8 +31,8 @@ public class Main {
         System.out.println();
         if(ja.equals("Login klant") || ja.equals("login klant")){
             if(ingelogd) {
-                SelecteerOptie(naam);
                 naam = naamKlant;
+                SelecteerOptie(naam);
             }
             else{
                 gegevensInvullen();
@@ -172,6 +175,7 @@ SelecteerOptie(naam);
             String adres = scanner.nextLine();
 
             Klant klant = new Klant(name, adres);
+            adresKlant=klant.getAdres();
             naamKlant = klant.getNaam();
             naam = naamKlant;
             ingelogd=true;
@@ -186,6 +190,7 @@ SelecteerOptie(naam);
             System.out.println();
             System.out.println("=======================");
             System.out.println("Bestellijst van "+ naamKlant +":");
+            System.out.println("Wordt bezorgd op: " + adresKlant);
             System.out.println("=======================");
         for(Bestelregel bestellingen: Bestelling.bestelling){
             Bloem bloem = bestellingen.getBloem();
