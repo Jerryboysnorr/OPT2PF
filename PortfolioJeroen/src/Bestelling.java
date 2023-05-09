@@ -9,12 +9,12 @@ public class Bestelling {
 
         if(type.equals("1")){
             Lelie lelie = new Lelie(aantal, "Lelies");
-            Bestelregel bestelregel = new Bestelregel(lelie, aantal, "Wordt verwacht..");
+            Bestelregel bestelregel = new Bestelregel(lelie, aantal, "Wordt verwacht..", true);
             bestelling.add(bestelregel);
         }
         else{
 Roos roos = new Roos(aantal, "Rozen");
-            Bestelregel bestelregel = new Bestelregel(roos, aantal, "Wordt verwacht..");
+            Bestelregel bestelregel = new Bestelregel(roos, aantal, "Wordt verwacht..", true);
             bestelling.add(bestelregel);
         }
 

@@ -26,6 +26,5 @@ String expectedType = "Lelies";
 
     //assert
     assertEquals(expectedType, Bestelling.bestelling.get(0).getBloem().getType());
-
 }
 }
