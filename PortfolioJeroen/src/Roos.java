@@ -1,5 +1,6 @@
 package PortfolioJeroen.src;
 
+
 public class Roos extends Bloem{
     public Roos(int Aantal, String Type) {
         super(Aantal, Type);
@@ -9,4 +10,25 @@ public class Roos extends Bloem{
     public String getType() {
         return "Rozen";
     }
+
+    double prijs = 15.0;
+
+    @Override
+    public double getPrijs(int aantallen) {
+        double actualprijs = 0;
+
+        if(aantallen>=40){
+            return actualprijs=0.65*(aantal*prijs);
+        }
+        else{
+            if(aantallen>=25){
+                return actualprijs=0.15*(aantal*prijs);
+            }
+            else{
+                if(aantallen<25){
+                    return actualprijs=aantal*prijs;
+                }
+                else{
+                    return 0.0;
+                }}}}
 }

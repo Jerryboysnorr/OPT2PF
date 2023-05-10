@@ -1,8 +1,10 @@
 package PortfolioJeroen.src.Test;
 import PortfolioJeroen.src.Bestelling;
+import PortfolioJeroen.src.Lelie;
 import PortfolioJeroen.src.Roos;
 import org.junit.Test;
 
+import static PortfolioJeroen.src.Main.wijzigBestel;
 import static junit.framework.TestCase.assertEquals;
 /*
 Deze test heeft als doel te testen of het werkt om een status van een bestelregel te wijzigen.
@@ -15,19 +17,19 @@ public class wijzigBestellingTest {
     @Test
     public void prepare(){
         //arrange
-        String type = "1";
+        String typeWB = "2";
         int aantal = 100;
-        Bestelling.voegBestellingToe(type, aantal);
-        String expectedType = "Rozen";
+        Bestelling.voegBestellingToe(typeWB, aantal, 0);
+        String expectedType2 = "Lelies";
+        Lelie Lelie = new Lelie(aantal, "Lelie");
+        Roos Roos = new Roos(aantal, "Roos");
 
-        Roos roos = new Roos(Bestelling.bestelling.get(0).getAantal(), "Rozen");
         //act
 
-        Bestelling.bestelling.get(0).setStatus("Verwerken");
+        wijzigBestel(Lelie, Roos, 0, 1);
 
         //assert
 
-        assertEquals(Bestelling.bestelling.get(0).getStatus(), "Verwerken");
-
+        assertEquals(expectedType2, Bestelling.bestelling.get(0).getBloem().getType());
     }
 }

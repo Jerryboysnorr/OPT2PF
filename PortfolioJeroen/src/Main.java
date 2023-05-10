@@ -21,6 +21,7 @@ public class Main {
         System.out.println("=================================");
         Scanner scanner = new Scanner(System.in);
 
+        Lelie Lelie = new Lelie(43, "Lelie");
         login(scanner.nextLine());
 
     }
@@ -154,7 +155,7 @@ koekoek="2";
     System.out.println("=======================");
     aantal = scanner.nextInt();
 
-    Bestelling.voegBestellingToe(koekoek, aantal);
+    Bestelling.voegBestellingToe(koekoek, aantal, 0);
 System.out.println("Bestelling succesvol geplaatst!");
 SelecteerOptie(naam);
         }
@@ -185,6 +186,7 @@ SelecteerOptie(naam);
 
 
         public static void toonBestelLijst(){
+        double totaalprijs = 0;
             System.out.println();
             System.out.println();
             System.out.println();
@@ -195,7 +197,9 @@ SelecteerOptie(naam);
         for(Bestelregel bestellingen: Bestelling.bestelling){
             Bloem bloem = bestellingen.getBloem();
         System.out.println("  " + bloem.getType() + " " + bestellingen.getAantal() + " stuks " + "status: " + bestellingen.getStatus());
+        totaalprijs = bestellingen.getBloem().getPrijs(bestellingen.getAantal());
         }
+        System.out.println("Prijs: " + totaalprijs);
         if(kweker) {
             bestellijstMenuKweker();}
         else{
@@ -232,7 +236,8 @@ wijzigBestelling();
     public static void bestellijstMenuKweker(){
         System.out.println("=======================");
         System.out.println("1. Status wijzigen");
-        System.out.println("2. Terug naar menu ");
+        System.out.println("2. Bestelling doorvoeren");
+        System.out.println("3. Terug naar menu ");
         Scanner scanner = new Scanner(System.in);
         String optie = scanner.nextLine();
         if(optie.equals("1")){
@@ -240,6 +245,9 @@ wijzigBestelling();
         }
         else{
             if(optie.equals("2")){
+doorvoerMenu();
+            }
+            if(optie.equals("3")){
                 SelecteerOptieKweker();
             }
             else{
@@ -248,6 +256,46 @@ wijzigBestelling();
                 bestellijstMenuKweker();
                 }
             }}
+
+    public static void doorvoerMenu(){
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        int i = 0;
+        Scanner scanner = new Scanner(System.in);
+        String koekoek;
+        int aantal;
+        System.out.println("=======================");
+        System.out.println("Selecteer beschikbare bloemen (typ het nummer):");
+        System.out.println("1. Lelie");
+        System.out.println("2. Roos");
+        System.out.println("=======================");
+        koekoek = scanner.nextLine();
+        if(koekoek.equals("1")){
+            koekoek = "1";
+        }
+        else{
+            if(koekoek.equals("2")){
+                koekoek="2";
+            }
+            else{
+                System.out.println("Dat is geen optie.");
+                doorvoerMenu();
+            }
+        }
+        System.out.println("=======================");
+        System.out.println("Voer aantal in");
+        System.out.println("=======================");
+        aantal = scanner.nextInt();
+
+doorvoeren(koekoek,aantal,1);
+        System.out.println("Bestelling succesvol doorgevoerd!");
+        SelecteerOptieKweker();
+    }
+
+    public static void doorvoeren(String type, int aantal, int key){
+        Bestelling.voegBestellingToe(type, aantal, key);
+    }
 
     public static void wijzigStatus(){
         System.out.println();
@@ -353,13 +401,13 @@ public static void wijzigBestelling(){
             Roos Roos = new Roos(Bestelling.bestelling.get(optie).getAantal(), "Roos");
 
             if(optie2==1){
-                Bestelling.bestelling.get(optie).setBloem(Lelie);
+wijzigBestel(Lelie, Roos, optie, optie2);
                 System.out.println("Succesvol gewijzigd!");
 toonBestelLijst();
             }
             else{
                 if(optie2==2){
-                    Bestelling.bestelling.get(optie).setBloem(Roos);
+                    wijzigBestel(Lelie, Roos, optie, optie2);
                     System.out.println("Succesvol gewijzigd!");
                     toonBestelLijst();
                 }
@@ -400,9 +448,19 @@ toonBestelLijst();
 
 }
 
-
-
-
-
+public static void wijzigBestel(Lelie Lelie, Roos Roos, int optie, int optie2){
+    if(optie2==1){
+        Bestelling.bestelling.get(optie).setBloem(Lelie);
     }
+    else{if(optie2==2){
+            Bestelling.bestelling.get(optie).setBloem(Roos);
+        }}}
+
+    public static double getPrijs(){
+
+        return 0.0;
+    }
+}
+
+
 

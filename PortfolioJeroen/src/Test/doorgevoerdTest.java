@@ -1,6 +1,7 @@
 package PortfolioJeroen.src.Test;
 
 import PortfolioJeroen.src.Bestelling;
+import PortfolioJeroen.src.Main;
 import PortfolioJeroen.src.Roos;
 import org.junit.Test;
 
@@ -16,8 +17,7 @@ public class doorgevoerdTest {
 
         
         //act
-        Bestelling.voegBestellingToe(type, aantal);
-        Roos roos = new Roos(Bestelling.bestelling.get(0).getAantal(), "Rozen");
+        Main.doorvoeren(type, aantal, 1);
 
         //assert
 

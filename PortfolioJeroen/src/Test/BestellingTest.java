@@ -22,7 +22,7 @@ String expectedType = "Lelies";
 
     //act
 
-    Bestelling.voegBestellingToe(type, aantal);
+    Bestelling.voegBestellingToe(type, aantal, 0);
 
     //assert
     assertEquals(expectedType, Bestelling.bestelling.get(0).getBloem().getType());
