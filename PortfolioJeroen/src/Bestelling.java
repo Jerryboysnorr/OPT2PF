@@ -26,5 +26,19 @@ public class Bestelling {
                 Roos roos = new Roos(aantal, "Rozen");
                 Bestelregel bestelregel = new Bestelregel(roos, aantal, "Wordt verwacht..", true);
                 bestelling.add(bestelregel);}}}
+
+    public static double getPrijs(Bloem type, int aantal, boolean doorgevoerd, boolean kortingskaart){
+        double prijs=type.getPrijs(aantal);
+
+        if(kortingskaart){
+            prijs = prijs*0.85;
+        }
+
+        if(doorgevoerd){
+            prijs = prijs * -1;
+        }
+
+        return prijs;
+    }
 }
 

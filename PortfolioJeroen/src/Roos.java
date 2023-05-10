@@ -18,15 +18,15 @@ public class Roos extends Bloem{
         double actualprijs = 0;
 
         if(aantallen>=40){
-            return actualprijs=0.65*(aantal*prijs);
+            return actualprijs=0.65*(aantallen*prijs);
         }
         else{
             if(aantallen>=25){
-                return actualprijs=0.15*(aantal*prijs);
+                return actualprijs=0.85*(aantallen*prijs);
             }
             else{
                 if(aantallen<25){
-                    return actualprijs=aantal*prijs;
+                    return actualprijs=aantallen*prijs;
                 }
                 else{
                     return 0.0;

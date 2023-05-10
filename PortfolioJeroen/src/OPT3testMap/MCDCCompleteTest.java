@@ -1,4 +1,4 @@
-package PortfolioJeroen.src.Test;
+package PortfolioJeroen.src.OPT3testMap;
 
 //Deze test zijn alle 3 de tests in 1 bestand. Dit heb ik gedaan zodat ik alle tests mooier in 1 screenshot
 //kon krijgen in mijn word bestand.

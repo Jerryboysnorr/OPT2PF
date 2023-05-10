@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     static boolean ingelogd = false;
+    static boolean kortingskaart = false;
 
     static boolean kweker = false;
     static String naam;
@@ -174,7 +175,11 @@ SelecteerOptie(naam);
             System.out.println("Wat is uw Adres? (Straat huisnummer Postcode)");
             System.out.println("=======================");
             String adres = scanner.nextLine();
-
+            System.out.println("=======================");
+            System.out.println("Heeft u een kortingskaart?");
+            System.out.println("=======================");
+            String kort = scanner.nextLine();
+            if(kort.equals("ja")){kortingskaart = true;}
             Klant klant = new Klant(name, adres);
             adresKlant=klant.getAdres();
             naamKlant = klant.getNaam();
@@ -199,6 +204,7 @@ SelecteerOptie(naam);
         System.out.println("  " + bloem.getType() + " " + bestellingen.getAantal() + " stuks " + "status: " + bestellingen.getStatus());
         totaalprijs = bestellingen.getBloem().getPrijs(bestellingen.getAantal());
         }
+        if(kortingskaart){System.out.println("15% extra korting >>");totaalprijs=totaalprijs*0.85;}
         System.out.println("Prijs: " + totaalprijs);
         if(kweker) {
             bestellijstMenuKweker();}

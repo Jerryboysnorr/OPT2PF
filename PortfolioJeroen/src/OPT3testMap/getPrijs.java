@@ -1,4 +1,4 @@
-package PortfolioJeroen.src.Test;
+package PortfolioJeroen.src.OPT3testMap;
 
 import PortfolioJeroen.src.Lelie;
 import org.junit.Test;
